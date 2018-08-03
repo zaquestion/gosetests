@@ -1,0 +1,16 @@
+args & kwargs
+template for transformation
+
+// this means we'd have to look up the function
+"ast.FunctionDef hash" = {
+	"gocall": "<gocode> for function call"
+}
+
+"abcd" = {
+	"source": {
+
+	},
+	"dest": {
+	}
+	"gocall": "http.get(\"htttps://google.com\")"
+}

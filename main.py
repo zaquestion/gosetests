@@ -20,7 +20,7 @@ def main():
 def write_test(test):
     output = StringIO.StringIO()
     name = test.name[:1].upper() + test.name[1:]
-    output.write("func {}() {{\n".format(name))
+    output.write("func {}(t testing.T) {{\n".format(name))
 
     # get the expressions for the function and convert
     exprs = [expr for expr in test.body if type(expr) == ast.Expr]
@@ -46,6 +46,7 @@ funcs.go file for storing the functions to start with
 - Some kind of map python func -> go func
 - ultimately want this to be the main way this tool works. function/code mappings are defined and executed, when a piece of python code isn't defined a stub is generated.
 
+parse the imports for the code, import/lookup the modules so they can be accessed (be good to keep the namespaces seperate). When dealing with a function call this should allow us to find the code for it and parse it into an ast thus allowing an effective function stub to be generated. The consideration here is that python functions have position args and keyward args whereas go only supports positional. We want to generate legitimate go functions versus go functions that have to parse their arguments just to figure out what they are.
 """
 
 
